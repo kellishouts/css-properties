@@ -31,7 +31,7 @@ ul.background_images li{
 }
 
 ul.background_images li.finn{
-  background-image:url('/images/finn.png');
+  background-image:url('../images/finn.png');
   background-color: #6BD62D;
   color: #FFF;
 
@@ -47,7 +47,7 @@ ul.background_images li.finn{
 }
 
 ul.background_images li.jake{
-  background-image:url('/images/jake.png');
+  background-image:url('../images/jake.png');
   background-color: #FBCF06;
   color: transparent;
 
@@ -65,7 +65,7 @@ ul.background_images li.jake{
 }
 
 ul.background_images li.bmo{
-  background-image:url('/images/bmo.png');
+  background-image:url('../images/bmo.png');
   background-color: #77F2F2;
   color: #1E8E94;
   background-repeat: repeat-x;
