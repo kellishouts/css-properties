@@ -1,0 +1,321 @@
+/* ------------Resets------------ */
+
+/* All other resets have been imported with reset.css */
+
+.clearfix:after {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+/* ------------Base------------ */
+
+/* Consider this very similar to "global default variables".
+They can be over-written with more specific styling. */
+
+html{
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ------------General------------ */
+
+/* Styles that are re-usable and very general for this project */
+
+body{
+  
+}
+
+nav{
+  display: block;
+  position: fixed;
+  background-color: #FFF;
+  width: 100%;
+  margin-top: -50px;
+  height: 50px;
+  border-bottom: 1px solid #EEE;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:    0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+  box-shadow:         0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+nav ul{
+  border-radius: none;
+  background-color: transparent;
+  margin: auto;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+nav ul li{
+  color: #777;
+  background-color: transparent;
+  border-bottom: none;
+  border-top: none;
+  line-height: 1em;
+  display: inline-block;
+  border-left: 1px solid #EEE;
+}
+
+nav ul li:first-child{
+  border-left: 0;
+}
+
+nav ul li a:hover,
+nav ul li:hover{
+  border-top: none;
+  border-bottom: none;
+  background-color: transparent;
+}
+
+nav ul li a{
+  color: #777;
+  display: block;
+  padding-top: 17px;
+  padding-bottom: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.content{
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Bitter', sans-serif;
+  font-weight: 700;
+  color: #565656;
+  text-align: center;
+  padding-top: 70px;
+}
+
+h1{
+  margin:0;
+  margin-bottom: 30px;
+  font-size: 2em;
+  margin-top: 50px;
+}
+
+h2{
+  font-size: 1.5em;
+  margin-bottom: 0;
+  margin-top: 90px;
+  border-top: 1px solid #DDD;
+
+}
+
+h3{
+  margin-top: 80px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  border-top: 1px solid #DDD;
+}
+
+ul{
+  border-radius: 3px;
+  background-color: #EEE;
+}
+
+li{
+  color: #777;
+  background-color: #CCC;
+  border-bottom: 10px solid #BBB;
+  border-top: 10px solid #BBB;
+}
+
+li:hover{
+  color: #777;
+  background-color: #CCC;
+  border-bottom: 10px solid #AAA;
+  border-top: 10px solid #AAA;
+}
+
+a{
+  color: #777;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #AAA;
+}
+
+p{
+  color: #777;
+  text-align: center; 
+  margin: auto;
+  max-width: 550px;
+  padding: 40px;
+  margin-bottom: 30px;
+  line-height: 1.4em;
+  clear: both;
+}
+
+li span, p span{
+  font-weight: 700;
+}
+
+li p{
+  padding: 0;
+}
+
+/* this means "if there is a p that follows a ul, 
+follow this style" */
+
+p + h2{
+  margin-top: 0px;
+}
+
+h2 + h3{
+  border-top: none;
+  padding-top: 0;
+}
+
+h2 + p{
+  margin-top: 0;
+}
+
+h3 + p{
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+ul + p{
+  margin-top: 30px;
+}
+
+p + p,
+h1 + p{
+  margin-top: -50px;
+}
+
+p + .ingredients{
+  margin-top: -50px;
+}
+
+.row{
+  background-color: #EEE;
+  padding: 20px;
+}
+
+.left, .right, .generic{
+  color: #777;
+  background-color: #CCC;
+  border: 10px solid #BBB;
+}
+
+.left p, .right p, .generic p{
+  margin:0;
+  padding: 10px;
+  max-width: none;
+}
+
+.row + p{
+  margin-top: 80px;
+}
+
+/* Check out how the ingredients styles are applied to both ordered
+and unordered lists, however I change the list-style-type for the li
+based on whether the list is ordered or unordered. */
+
+.ingredients{
+  border-radius: none;
+  background-color: transparent;
+  width: 300px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.ingredients li{
+  color: #777;
+  background-color: transparent;
+  border-bottom: none;
+  border-top: none;
+  line-height: 1.3em;
+  margin-bottom: 15px;
+}
+
+ul.ingredients li{
+  list-style-type: disc;
+}
+
+ol.ingredients li{
+  list-style-type: decimal;
+}
+
+
+/* Extra styling for visuals, although not necessary for explaining concepts. */
+
+ul.good{
+  background-color: transparent;
+  border-radius: none;
+  margin:0;
+  padding:0;
+}
+
+ul.good li{
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin:0;
+  border: none;
+  background-color: transparent;
+}
+
+ul.inline_block_list.no_width li a{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+ul.inline_block_list.bad,
+ul.inline_block_list.with_line_height{
+  margin-bottom: 20px;
+}
+
+ul.inline_block_list li a:hover{
+  background-color: #BBB;
+  color: #777;
+}
+
+ul.inline_block_list.good{
+  background-color: #EEE;
+}
+
+ul.inline_block_list.good li{
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: #CCC;
+  border: 1px solid #AAA;
+  margin: 0;
+}
+
+@media only screen and (max-width: 640px){
+  
+  nav{
+    display: none;
+  }
+
+  p{
+    text-align: left;
+  }
+
+  li p{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 776px){
+  
+  /* hacky media query to hide makeshift nav because it doesn't degrade well */
+  nav{
+    display:none;
+  }
+}

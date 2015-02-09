@@ -1,0 +1,330 @@
+/* ------------Background Images------------ */
+
+ul.background_images{
+  /* centers the element */
+  display: block;
+  background-color: transparent;
+  margin:auto;
+
+  /* zeroes out the annoying default padding-left on the ul */
+  padding: 0;
+
+  /* This makes the inline-block li elements centered */
+  text-align: center;
+}
+
+ul.background_images li{
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 1%;
+  text-align: center;
+  padding-top: 20px;
+  border:0;
+  border-radius: 3px;
+
+  /* If you use background-image, you need to set the width and height
+  of the element or else the box will just be the size of the words 'finn'
+  'jake' and 'bmo'. A background image does not affect the size of it's
+  container so these values need to be set. */
+  height: 220px;
+  width: 30%;
+}
+
+ul.background_images li.finn{
+  background-image:url('/images/finn.png');
+  background-color: #6BD62D;
+  color: #FFF;
+
+  background-repeat: no-repeat; 
+
+  /* This sets the horizontal position of where the image is pinned, 
+  then the vertical position from the top edge of the element */
+  background-position: center 35px;
+
+  /* This sets the width and height of background image.
+  DO NOT squish the image. It must be proportional!! */
+  background-size: 150px auto;
+}
+
+ul.background_images li.jake{
+  background-image:url('/images/jake.png');
+  background-color: #FBCF06;
+  color: transparent;
+
+  background-repeat: repeat; 
+
+  /* background-position uses pixel values from the top and left of the element
+  or relative values of left, center, and right for the horizontal value
+  or top, center or bottom for the vertical value. If you stretch the window
+  you will notice that the repeating pattern is 'pinned' to the bottom right corner */
+  background-position: right bottom;
+
+  /* sets the width and height of background image.
+  DO NOT squish the image. It must be proportional!! */
+  background-size: 20px auto;
+}
+
+ul.background_images li.bmo{
+  background-image:url('/images/bmo.png');
+  background-color: #77F2F2;
+  color: #1E8E94;
+  background-repeat: repeat-x;
+  background-position: center center;
+  background-size: 100px auto;
+}
+
+/* ------------CSS Transition------------ */
+
+a.css_transition{
+  color: #FFF;
+  border-radius: 3px;
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 200px;
+  background-color: #23A2A8;
+  padding: 30px;
+  font-size: 1.2em;
+  transition: all 0.5s ease;
+  text-decoration: none;
+  margin-top: 40px;
+}
+
+a.css_transition:hover{
+  color: #FFF;
+  width: 300px;
+  background-color: #1E8E94;
+  transition: all 0.5s ease;
+}
+
+/* ------------Inline, Block, and Inline-Block------------ */
+
+/* Inline: Inline elements can have border, padding, margin, width, and height
+properties. However, its parent element will ignore its width, vertical padding, and margin
+in the layout */
+
+ul.inline_list{
+  margin:0;
+  padding:0;
+  background-color: #EEE;
+
+  /* you can set the parent element of inline items to text-align:centered, to center the items */
+  text-align: center;
+}
+
+ul.inline_list li{
+  display: inline;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px; /* ignored by layout */
+  padding-bottom: 10px; /* ignored by layout */
+  margin-left: 10px; /* margin left and right overlap */
+  margin-right: 10px;
+  margin-top: 10px; /* ignored by layout */
+  margin-bottom: 10px; /* ignored by layout */
+  text-align: center; /* has no effect */
+  width: 300px; /* ignored by layout */
+}
+
+/* "zeroing" out values is different for different properties
+(auto, none, 0, transparent). Each of these only works for certain
+properties. */
+
+ul.inline_list.good{
+  background-color: transparent;
+}
+
+ul.inline_list.good li{
+  margin: 0 10px;
+}
+
+/* Block: Block elements can have border, padding, margin, width, and height
+properties. Its parent will retain its vertical padding and margin in the layout.
+Elements with display:block are 100% width, unless a width is set. */
+
+ul.block_list{
+  margin:0;
+  padding:0;
+
+  text-align: center; /* has no effect */
+}
+
+ul.block_list li{
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* vertical margins always overlap so there is a total of 10px vertial margin instead of 20px */
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  
+  /* block items are 100% width, alternatively, you can set a width & margin:auto;
+  or the elements will stick to the left edge */
+  /*width: 200px;*/
+  /*margin: auto;*/
+}
+
+/* Inline-Block: Inline-Block elements can have border, padding, margin, width, and height
+properties. Its parent will retain its vertical padding and margin in the layout.
+Elements with display:inline-block are the width of its' element, unless a width is set. */
+
+ul.inline_block_list{
+  margin:0;
+  padding:0;
+  padding: 10px 0;
+
+  /* you can set the parent element to text-align:centered, to center the items */
+  text-align: center;
+}
+
+ul.inline_block_list li{
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px; /* ignored by layout */
+  padding-bottom: 10px; /* ignored by layout */
+  margin-left: 10px; /* margin left and right double up */
+  margin-right: 10px;
+  margin-top: 10px; /* ignored by layout */
+  margin-bottom: 10px; /* ignored by layout */
+  text-align: center; /* has no effect */
+  /* width: 200px; 
+  /* also listens to width! */
+}
+
+/* ------------Inline-block Example 1------------ */
+
+ul.inline_block_list.bad li{
+  border:0;
+  margin:0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #AAA;
+}
+
+ul.inline_block_list.bad li a{
+  /* This element is inline by default. This causes problems. */
+}
+
+/* ------------Inline-block Example 2------------ */
+
+ul.inline_block_list.good.with_line_height li a{
+  /* must be block or the line-height won't do anything */
+  line-height: 45px;
+  display: block;
+}
+
+/* ------------Inline-block Example 3------------ */
+
+ul.inline_block_list.good.with_padding li a{
+  /* must be block or the line-height won't do anything */
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+ul.percent_width li{
+  width: 33.3333%;
+  box-sizing:border-box;
+}
+
+ul.fixed_width li{
+  width: 250px;
+}
+
+/* ------------Inline-Block Quirks------------*/
+
+ul.quirk li,
+ul.quirk2 li{
+  /* Attempting to get rid of horizontal margin */
+  margin-right: 0;
+  margin-left: 0;
+}
+
+ul.quirk2 li{
+  width: 28%;
+  margin: 1%;
+}
+
+ul.quirk2 li p{
+  margin: 20px;
+}
+
+ul#quirk2b li{
+  height: 200px;
+}
+
+ul#quirk2c li{
+  vertical-align: top;
+}
+
+ul#quirk2d li{
+  height: 170px;
+  vertical-align: top;
+}
+
+/* ------------Multi-Column Layouts------------ */
+
+.float_step_2 .left{
+  float: left;
+  width: 70%;
+}
+
+.float_step_2 .right{
+  float: right;
+  width: 30%;
+}
+
+.float_step_3 .left,
+.float_step_4 .left{
+  float: left;
+  width: 70%;
+  box-sizing:border-box;
+}
+
+.float_step_3 .right,
+.float_step_4 .right{
+  float: right;
+  width: 30%;
+  box-sizing:border-box;
+}
+
+.row .generic_3{
+  float:left;
+  width: 33.3333%;
+  box-sizing:border-box;
+}
+
+.row .generic_5{
+  float:left;
+  width: 20%;
+  box-sizing:border-box;
+}
+
+.inline_block_step_2 .left,
+.inline_block_step_3 .left{
+  display: inline-block;
+  width: 70%;
+}
+
+.inline_block_step_2 .right,
+.inline_block_step_3 .right{
+  display: inline-block;
+  width: 30%;
+}
+
+.inline_block_step_4 .left{
+  display: inline-block;
+  width: 70%;
+  box-sizing:border-box;
+}
+
+.inline_block_step_4 .right{
+  display: inline-block;
+  width: 30%;
+  box-sizing:border-box;
+}

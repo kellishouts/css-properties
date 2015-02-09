@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Really Important CSS Concepts</title>
+  <link href='http://fonts.googleapis.com/css?family=Bitter:700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#background_image">Background Images</a></li>
+      <li><a href="#css_transition">CSS Transitions</a></li>
+      <li><a href="#inline_block">Inline, Block, and Inline-Block</a></li>
+      <li><a href="#multi_column_layouts">Multi-Column Layouts</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <h1>Really Important CSS Concepts</h1>
+    <p>This guide will only be useful if you also inspect the HTML markup and styles.</p>
+    <h2 id="background_image">Background Image</h2>
+    <p>Background images can do so many things! However, if the image is semantically really critical to the content of the page, it is better to use an &lt;img&gt; tag.</p>
+    <ul class="background_images">
+      <li class="finn">Finn</li>
+      <li class="jake">Jake</li>
+      <li class="bmo">BMO</li>
+    </ul>
+    <h2 id="css_transition">CSS Transition</h2>
+    <a class="css_transition" href="#">I'm a CSS Transition!</a>
+    <h2 id="inline_block">Inline, Block &amp; Inline-Block</h2>
+    <h3>display:inline</h3>
+    <p>Inline elements can have border, padding, margin, width, and height properties. However, the parent element will ignore the child elements' width, vertical padding, and margin in the layout. Also notice what happens when you have a small mobile layout (shrink your browser). This is usually not desireable.</p>
+    <ul class="inline_list">
+      <li>Princess Bubblegum</li>
+      <li>Flame Princess</li>
+      <li>Lumpy Space Princess</li>
+    </ul>
+    <p>A good reason to use display:inline list items might be for a short, minimally styled list of links:</h3>
+    <ul class="inline_list good">
+      <li><a href="#">Princess Bubblegum</a></li>
+      <li><a href="#">Flame Princess</a></li>
+      <li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <h3>display:block</h3>
+    <p>Block elements can have border, padding, margin, width, and height properties. The parent element will retain the child elements' vertical padding and margin in the layout. Elements with display:block are 100% width, unless a width is set.</p>
+    <ul class="block_list">
+      <li>Princess Bubblegum</li>
+      <li>Flame Princess</li>
+      <li>Lumpy Space Princess</li>
+    </ul>
+    <p>A good reason to use display:block list items would be for a <span>vertical menu</span> of things, or possibly a <span>modular layout</span> (described later).</p>
+    <h3>display:inline-block</h3>
+    <p>Inline-Block elements can have border, padding, margin, width, and height properties. The parent element will retain the vertical padding and margin of the child elements in the layout. Elements with display:inline-block are the width of their content, unless the width property is set.</p>
+    <ul class="inline_block_list">
+      <li>Princess Bubblegum</li>
+      <li>Flame Princess</li>
+      <li>Lumpy Space Princess</li>
+    </ul>
+    <p>A good reason to use display:inline list items might be for a <span>styled horizontal nav</span> or possibly a <span>modular layout</span> (described later).</p>
+    <p>Example of list items with <span>no width</span> (width:auto):</p>
+    <ul class="inline_block_list good no_width with_line_height">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <p>Example of list items with a <span>% width</span>:</p>
+    <ul class="inline_block_list good percent_width with_line_height">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <p>Example of list items with a <span>fixed pixel width</span>:</p>
+    <ul class="inline_block_list good fixed_width with_line_height">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <p>These three lists of links don't seem different until you do one of the following: hover over an item, drop to a mobile size and see what happens, or inspect the CSS:</p>
+    <ul class="inline_block_list bad percent_width with_line_height">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <ul class="inline_block_list good percent_width with_line_height">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <ul class="inline_block_list good percent_width with_padding">
+      <li><a href="#">Princess Bubblegum</a></li><!-- stupid hack
+   --><li><a href="#">Flame Princess</a></li><!-- stupid hack
+   --><li><a href="#">Lumpy Space Princess</a></li>
+    </ul>
+    <h3>Quirk #1</h3>
+    <p>With inline and inline-block items, there is a small gap between items. No matter what you do, you cannot get rid of it...</p>
+    <ul id="quirk1" class="quirk inline_block_list">
+      <li>Princess Bubblegum</li>
+      <li>Flame Princess</li>
+      <li>Lumpy Space Princess</li>
+    </ul>
+    <p class="after">...unless you do something hacky like this. (Inspect Element)</p>
+    <ul id="quirk1b" class="quirk inline_block_list">
+      <li>Princess Bubblegum</li><!--
+   --><li>Flame Princess</li><!--
+   --><li>Lumpy Space Princess</li>
+    </ul>
+    <h3>Quirk #2</h3>
+    <p>With inline-block items, the alignment gets funky if each item is a different height.</p>
+    <ul id="quirk2" class="quirk2 inline_block_list">
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur urna, ut tincidunt tellus. Vestibulum ut libero magna. Nullam sit amet metus mauris.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+      </li>
+    </ul>
+    <p>...and if you give it a set height property, this just happens:</p>
+    <ul id="quirk2b" class="quirk2 inline_block_list">
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur urna, ut tincidunt tellus. Vestibulum ut libero magna. Nullam sit amet metus mauris.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+      </li>
+    </ul>
+    <p>...unless you set a vertical-align property...</p>
+    <ul id="quirk2c" class="quirk2 inline_block_list">
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur urna, ut tincidunt tellus. Vestibulum ut libero magna. Nullam sit amet metus mauris.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+      </li>
+    </ul>
+    <p>...or vertical-align and height properties.</p>
+    <ul id="quirk2d" class="quirk2 inline_block_list">
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac efficitur urna, ut tincidunt tellus. Vestibulum ut libero magna. Nullam sit amet metus mauris.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet.
+        </p>
+      </li>
+    </ul>
+    <h3>Benefits of inline-block</h3>
+    <p>Using the inline-block display property for group of items, there are 3 nice things that happen with your items. If your boxes are all the same height...</p>
+    <ol class="ingredients">
+    <li>your items can have an automatic width</li>
+    <li>when the items fills up the entire horizontal space, overflowing items all start lining up below automatically</li>
+    <li>if the parent element has the property text-align:center, the elements that drop down are centered</li>
+    </ol>
+    <ul class="inline_block_list">
+      <li>Princess Bubblegum</li>
+      <li>Flame Princess</li>
+      <li>Lumpy Space Princess</li>
+      <li>Hotdog Bubblegum</li>
+      <li>Breakfast Princess</li>
+      <li>Wildberry Princess</li>
+      <li>Bounce House Bubblegum</li>
+      <li>Ghost Princess</li>
+    </ul>
+    <h2 id="multi_column_layouts">Multi-Column Layouts</h2>
+    <p>"Traditional" Multi-Column Layouts follow one of these structures. With the new-fangled flexbox property, this method will soon die. For now, multi-column layouts have start off more or less with one of the following structures.</p>
+    <h3>Multi-Column Layouts with the float property</h3>
+    <p>The structure for a 2-column float-based layout contains:
+    </p>
+    <ul class="ingredients">
+      <li>outer container: must have a <span>.clearfix</span> class (or a clear:both property).</li>
+      <li>inner containers: margins and widths must not exceed total of 100%</li>
+      <li>inner containers: <span>box-sizing:border-box</span></li>
+      <li>inner containers: <span>float:left</span> or <span>float:right</span></li>
+    </ul>
+    <p>Start with plain 'ol divs:
+    </p>
+    <div class="row float_step_1">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>Then add the float and width properties. If your inner divs have some padding, margin, or borders, this might happen:
+    </p>
+    <div class="row float_step_2">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>So you need to add the <span>box-sizing:border-box</span> property to the floating items:
+    </p>
+    <div class="row float_step_3">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>Except the outer container lost it's height! So you need the apply the <span>.clearfix</span> class to the outer item in your HTML markup:
+    </p>
+    <div class="row float_step_4 clearfix">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>This method also works for more than 2 columns. (In this example, everything is floating left).
+    </p>
+    <div class="row float_step_3 clearfix">
+      <div class="generic generic_3">
+        <p>one</p>
+      </div>
+      <div class="generic generic_3">
+        <p>two</p>
+      </div>
+      <div class="generic generic_3">
+        <p>three</p>
+      </div>
+    </div>
+    <p>Even more columns!
+    </p>
+    <div class="row float_step_3 clearfix">
+      <div class="generic generic_5">
+        <p>one</p>
+      </div>
+      <div class="generic generic_5">
+        <p>two</p>
+      </div>
+      <div class="generic generic_5">
+        <p>three</p>
+      </div>
+      <div class="generic generic_5">
+        <p>four</p>
+      </div>
+      <div class="generic generic_5">
+        <p>five</p>
+      </div>
+    </div>
+    <h3>Multi-Column Layouts with the inline-block property</h3>
+    <p>The structure for a 2-column inline-block-based layout contains:
+    </p>
+    <ul class="ingredients">
+      <li>outer container</li>
+      <li>inner containers: margins and widths must not exceed total of 100%</li>
+      <li>inner containers: use <span>&lt;!-- --&gt;</span> to comment out the spaces between each inner container (or other equally hacky methods)</li>
+      <li>inner containers: <span>box-sizing:border-box</span></li>
+    </ul>
+    <p>Start with plain 'ol divs:
+    </p>
+    <div class="row inline_block_step_1">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>Then give the inner containers the property <span>display:inline-block</span> and % widths.</p>
+    <div class="row inline_block_step_2">
+      <div class="left">
+        <p>left</p>
+      </div>
+      <div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>You need to apply the really dumb hack (see HTML) to remove the spaces between the inner divs</p>
+    <div class="row inline_block_step_3">
+      <div class="left">
+        <p>left</p>
+      </div><!--
+      --><div class="right">
+        <p>right</p>
+      </div>
+    </div>
+    <p>Apply <span>box-sizing:border-box</span> to the inner containers.</p>
+    <div class="row inline_block_step_4">
+      <div class="left">
+        <p>left</p>
+      </div><!--
+      --><div class="right">
+        <p>right</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
